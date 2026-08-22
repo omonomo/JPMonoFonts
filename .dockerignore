@@ -1,0 +1,13 @@
+*bak
+*ttx
+*ttf
+.DS_Store
+.git
+.gitignore
+build
+images
+README.md
+LICENSE.txt
+.dockerignore
+compose.yml
+Dockerfile
