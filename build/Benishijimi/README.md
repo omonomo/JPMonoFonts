@@ -1,6 +1,6 @@
 ## Benishijimi
 
-Copyright (c) 2026 omonomo ([https://omonomo.github.io//](https://omonomo.github.io//))
+Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
 Google Fonts 等で提供されている [Zen Kurenaido](https://github.com/googlefonts/zen-kurenaido) を等幅フォント化しました。
 
@@ -21,7 +21,7 @@ Copyright 2021 The Zen Kurenaido Project Authors ([https://github.com/googlefont
 
 ## Benishijimi のライセンス
 
-[SIL Open Font License Version 1.1](https://github.com/omonomo//OFL.txt)
+[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/Benishijimi/OFL.txt)
 
 ## 謝辞
 

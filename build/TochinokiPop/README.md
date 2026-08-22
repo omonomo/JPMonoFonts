@@ -1,6 +1,6 @@
 ## Tochinoki Pop
 
-Copyright (c) 2026 omonomo ([https://omonomo.github.io//](https://omonomo.github.io//))
+Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
 Google Fonts 等で提供されている [Mochiy Pop One](https://github.com/fontdasu/Mochiypop) を等幅フォント化しました。
 
@@ -20,7 +20,7 @@ Copyright 2020 The MochiyPop Project Authors ([https://github.com/fontdasu/Mochi
 
 ## Tochinoki Pop のライセンス
 
-[SIL Open Font License Version 1.1](https://github.com/omonomo//OFL.txt)
+[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/TochinokiPop/OFL.txt)
 
 ## 謝辞
 

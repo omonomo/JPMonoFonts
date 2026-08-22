@@ -1,6 +1,6 @@
 ## MaruCue Pop
 
-Copyright (c) 2026 omonomo ([https://omonomo.github.io//](https://omonomo.github.io//))
+Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
 Google Fonts 等で提供されている [Hachi Maru Pop](https://github.com/noriokanisawa/HachiMaruPop) を等幅フォント化しました。
 
@@ -20,7 +20,7 @@ Copyright (c) 2019 by Nontynet. All rights reserved.
 
 ## MaruCue Pop のライセンス
 
-[SIL Open Font License Version 1.1](https://github.com/omonomo//OFL.txt)
+[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/MaruCuePop/OFL.txt)
 
 ## 謝辞
 
