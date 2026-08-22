@@ -471,6 +471,10 @@ while (i < SizeOf(fontstyle_list))
     Select(65552);  Clear() # Temporary glyph
 
     Print("Edit Symbols")
+# # (下げる)
+    Select(0u0023) # #
+    Move(0, -195)
+    SetWidth(613)
 
 # * (グリフを置き換える)
     Select(0uff0a); Copy() # 全角＊
