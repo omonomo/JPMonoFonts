@@ -437,11 +437,17 @@ while (i < SizeOf(fontstyle_list))
     SetWidth(1000)
 
     Print("Edit Symbols")
-# + (小さくする)
-    Select(0u002b) # Plus
+# * (下に下げる)
+    Select(0u002a) # *
+    Move(0, -324)
+    SetWidth(462)
+
+# + (小さくして下げる)
+    Select(0u002b) # +
     Scale(50, 0, 350)
     ChangeWeight(24)
     CorrectDirection()
+    Move(0, -147)
     SetWidth(472)
 
 # Reverse solidus (グリフを置き換える)
