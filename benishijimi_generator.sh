@@ -448,7 +448,6 @@ while (i < SizeOf(fontstyle_list))
     ChangeWeight(24)
     CorrectDirection()
     Move(0, -147)
-    SetWidth(472)
 
 # Reverse solidus (グリフを置き換える)
     Select(0u002f); Copy() # Solidus
