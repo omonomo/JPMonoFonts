@@ -460,6 +460,19 @@ while (i < SizeOf(fontstyle_list))
     Select(65552);  Clear() # Temporary glyph
 
     Print("Edit Symbols")
+# * (拡大して下げる)
+    Select(0u002a) # *
+    Scale(150)
+    ChangeWeight(-10); CorrectDirection()
+    Move(0, -288)
+    SetWidth(468)
+
+# - (横に延ばして上げる)
+    Select(0u002d) # -
+    Scale(130, 100)
+    Move(0, 145)
+    SetWidth(469)
+
 # , (しっぽを伸ばす)
     Select(0u2014); Copy() # Em dash
     Select(65552);  Paste() # Temporary glyph
