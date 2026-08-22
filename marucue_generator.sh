@@ -410,6 +410,20 @@ while (i < SizeOf(fontstyle_list))
 #     Print("Edit alphabets")
 
     Print("Edit Symbols")
+# " (拡大)
+    Select(0u0022) # "
+    Scale(120)
+    SetWidth(500)
+
+# ' (グリフ置き換え)
+    Select(0u0022); Copy() # "
+    Select(0u0027); Paste()
+    Select(0u25a0); Copy() # Black square
+    Select(0u0027); PasteWithOffset(120, 400)
+    OverlapIntersect()
+    Move(-78, 0)
+    SetWidth(500)
+
 # , (しっぽを伸ばす)
     Select(0u25a0); Copy() # Black square
     Select(0uffee); Paste() # Temporary glyph
