@@ -487,7 +487,16 @@ while (i < SizeOf(fontstyle_list))
     SetWidth(1000)
     Select(65552);  Clear() # Temporary glyph
 
-    # Print("Edit Symbols")
+    Print("Edit Symbols")
+# * (下げる)
+    Select(0u002a) # *
+    Move(0, -60)
+    SetWidth(500)
+
+# = (上げる)
+    Select(0u003d) # =
+    Move(0, 45)
+    SetWidth(500)
 
 # 文字幅調整
     if ("${draft_flag}" == "false")
