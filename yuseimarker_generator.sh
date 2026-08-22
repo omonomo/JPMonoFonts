@@ -454,6 +454,19 @@ while (i < SizeOf(fontstyle_list))
     Select(65552);  Clear() # Temporary glyph
 
     Print("Edit Symbols")
+# * (拡大して下げる)
+    Select(0u002a) # *
+    Scale(120)
+    ChangeWeight(-20)
+    CorrectDirection()
+    Move(0, -293)
+    SetWidth(423)
+
+# - (上げる)
+    Select(0u002d) # -
+    Move(0, 33)
+    SetWidth(500)
+
 # ,.:; (拡大)
     Select(0u002c) # ,
     SelectMore(0u002e) # .
@@ -483,12 +496,6 @@ while (i < SizeOf(fontstyle_list))
     SelectMore(0uff07) # 全角＇
     Scale(110, 490, 700)
     SetWidth(1000)
-
-# * (拡大)
-    Select(0u002a) # *
-    Scale(120, 0, 700)
-    ChangeWeight(-20)
-    CorrectDirection()
 
 # { (波の先端をとがらせる)
     Select(0u003c); Copy() # <
