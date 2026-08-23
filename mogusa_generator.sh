@@ -493,6 +493,11 @@ while (i < SizeOf(fontstyle_list))
     Move(0, -60)
     SetWidth(500)
 
+# + (上げる)
+    Select(0u002b) # +
+    Move(0, 20)
+    SetWidth(500)
+
 # = (上げる)
     Select(0u003d) # =
     Move(0, 45)
