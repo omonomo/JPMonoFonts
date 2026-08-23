@@ -410,6 +410,16 @@ while (i < SizeOf(fontstyle_list))
 #     Print("Edit alphabets")
 
     Print("Edit Symbols")
+# *+- (上げる)
+    Select(0u002a) # *
+    SelectMore(0u002b) # +
+    SelectMore(0u002d) # -
+    Move(0, 20)
+
+# = (上げる)
+    Select(0u003d) # =
+    Move(0, 30)
+
 # " (拡大)
     Select(0u0022) # "
     Scale(120)
