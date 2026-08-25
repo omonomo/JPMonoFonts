@@ -58,7 +58,7 @@ width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角�
 width_hankaku="600" # 半角文字幅
 width_threshold="880" # 半角全角判断文字幅
 width_zenkaku="1000" # 全角文字幅
-width_expand="-20" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
+width_expand="-5" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
 weight_narrow="0" # 幅広のグリフを縮める際のウェイト調整値 (小さいほど拡大、0で無効)
 
 build_fonts_dir="build" # 完成品を保管するフォルダ
@@ -440,6 +440,16 @@ while (i < SizeOf(fontstyle_list))
     Clear()
     Paste()
     Move(351, 0)
+    SetWidth(1000)
+
+# j (左に移動)
+    Select(0u006a) # j
+    Move(-30, 0)
+    SetWidth(371)
+
+# ｊ (左に移動)
+    Select(0uff4a) # ｊ
+    Move(-30, 0)
     SetWidth(1000)
 
 # l (つま先を追加する)
