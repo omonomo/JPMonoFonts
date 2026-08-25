@@ -398,15 +398,6 @@ while (i < SizeOf(fontstyle_list))
 
 # --------------------------------------------------
 
-# 全角スペースの異体字セレクタを削除
-    Select(0u2003)
-    Clear(); DetachAndRemoveGlyphs()
-    SetWidth(1000)
-
-    Select(0u3000)
-    Clear(); DetachAndRemoveGlyphs()
-    SetWidth(1000)
-
     Print("Edit numbers")
 # 0 (スラッシュ0にする)
     Select(0u002f); Copy() # Solidus
