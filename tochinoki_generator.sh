@@ -56,9 +56,9 @@ hhea_linegap="0"
 width_zero="0" # 文字幅ゼロ
 width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角の半分とする
 width_hankaku="600" # 半角文字幅
-width_threshold="900" # 半角全角判断文字幅
+width_threshold="950" # 半角全角判断文字幅
 width_zenkaku="1000" # 全角文字幅
-scale_x_ratio="98" # 幅広のグリフを縮める際の調整倍率
+width_expand="5" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
 weight_narrow="4" # 幅広のグリフを縮める際のウェイト調整値 (小さいほど拡大、0で無効)
 
 build_fonts_dir="build" # 完成品を保管するフォルダ
@@ -538,6 +538,14 @@ while (i < SizeOf(fontstyle_list))
     ChangeWeight(-10)
     CorrectDirection()
 
+# Grave (下げる)
+    Select(0u0060) # Grave accent
+    Move(0, -240)
+
+# Acute (下げる)
+    Select(0u00b4) # Acute accent
+    Move(0, -240)
+
 # ＂ (追加)
     Select(0u0022); Copy() # "
     Select(0uff02); Paste() # 全角＂
@@ -617,6 +625,103 @@ while (i < SizeOf(fontstyle_list))
     if ("${draft_flag}" == "false")
         Print("Narrows some glyphs (it may take a few minutes)")
         Select(0u0000, 0u007f) # 基本ラテン文字
+        SelectMore(0u0174) # Ŵ
+        SelectMore(0u0175) # ŵ
+        SelectMore(0u0271) # ɱ
+        SelectMore(0u1d6f) # ᵯ
+        SelectMore(0u1d86) # ᶆ
+        SelectMore(0u1e3e) # Ḿ
+        SelectMore(0u1e3f) # ḿ
+        SelectMore(0u1e40) # Ṁ
+        SelectMore(0u1e41) # ṁ
+        SelectMore(0u1e42) # Ṃ
+        SelectMore(0u1e43) # ṃ
+        SelectMore(0u1e80) # Ẁ
+        SelectMore(0u1e81) # ẁ
+        SelectMore(0u1e82) # Ẃ
+        SelectMore(0u1e83) # ẃ
+        SelectMore(0u1e84) # Ẅ
+        SelectMore(0u1e85) # ẅ
+        SelectMore(0u1e86) # Ẇ
+        SelectMore(0u1e87) # ẇ
+        SelectMore(0u1e88) # Ẉ
+        SelectMore(0u1e89) # ẉ
+        SelectMore(0u1e98) # ẘ
+        SelectMore(0u2c6e) # Ɱ
+        SelectMore(0u2c72) # Ⱳ
+        SelectMore(0u2c73) # ⱳ
+        SelectMore(0uab3a) # ꬺ
+        foreach
+            if (WorthOutputting())
+                glyph_width = GlyphInfo("Width")
+                Move(${width_expand}, 0)
+                SetWidth(glyph_width + ${width_expand} + ${width_expand})
+            endif
+        endloop
+
+        SelectWorthOutputting()
+        SelectFewer(0u0000, 0u007f) # 基本ラテン文字
+        SelectFewer(0u0174) # Ŵ
+        SelectFewer(0u0175) # ŵ
+        SelectFewer(0u0271) # ɱ
+        SelectFewer(0u1d6f) # ᵯ
+        SelectFewer(0u1d86) # ᶆ
+        SelectFewer(0u1e3e) # Ḿ
+        SelectFewer(0u1e3f) # ḿ
+        SelectFewer(0u1e40) # Ṁ
+        SelectFewer(0u1e41) # ṁ
+        SelectFewer(0u1e42) # Ṃ
+        SelectFewer(0u1e43) # ṃ
+        SelectFewer(0u1e80) # Ẁ
+        SelectFewer(0u1e81) # ẁ
+        SelectFewer(0u1e82) # Ẃ
+        SelectFewer(0u1e83) # ẃ
+        SelectFewer(0u1e84) # Ẅ
+        SelectFewer(0u1e85) # ẅ
+        SelectFewer(0u1e86) # Ẇ
+        SelectFewer(0u1e87) # ẇ
+        SelectFewer(0u1e88) # Ẉ
+        SelectFewer(0u1e89) # ẉ
+        SelectFewer(0u1e98) # ẘ
+        SelectFewer(0u2c6e) # Ɱ
+        SelectFewer(0u2c72) # Ⱳ
+        SelectFewer(0u2c73) # ⱳ
+        SelectFewer(0uab3a) # ꬺ
+        foreach
+            glyph_width = GlyphInfo("Width")
+            if (glyph_width <= ${width_threshold})
+                Move(${width_expand}, 0)
+                SetWidth(glyph_width + ${width_expand} + ${width_expand})
+            endif
+        endloop
+
+        Select(0u0000, 0u007f) # 基本ラテン文字
+        SelectMore(0u0174) # Ŵ
+        SelectMore(0u0175) # ŵ
+        SelectMore(0u0271) # ɱ
+        SelectMore(0u1d6f) # ᵯ
+        SelectMore(0u1d86) # ᶆ
+        SelectMore(0u1e3e) # Ḿ
+        SelectMore(0u1e3f) # ḿ
+        SelectMore(0u1e40) # Ṁ
+        SelectMore(0u1e41) # ṁ
+        SelectMore(0u1e42) # Ṃ
+        SelectMore(0u1e43) # ṃ
+        SelectMore(0u1e80) # Ẁ
+        SelectMore(0u1e81) # ẁ
+        SelectMore(0u1e82) # Ẃ
+        SelectMore(0u1e83) # ẃ
+        SelectMore(0u1e84) # Ẅ
+        SelectMore(0u1e85) # ẅ
+        SelectMore(0u1e86) # Ẇ
+        SelectMore(0u1e87) # ẇ
+        SelectMore(0u1e88) # Ẉ
+        SelectMore(0u1e89) # ẉ
+        SelectMore(0u1e98) # ẘ
+        SelectMore(0u2c6e) # Ɱ
+        SelectMore(0u2c72) # Ⱳ
+        SelectMore(0u2c73) # ⱳ
+        SelectMore(0uab3a) # ꬺ
         foreach
             if (WorthOutputting())
                 SetGlyphClass("none") # ついでにグリフクラスをなしにする(表示被り対策)
@@ -627,7 +732,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 else
-                    temp = ${width_hankaku} * ${scale_x_ratio} / glyph_width
+                    temp = 100 * ${width_hankaku} / glyph_width
                     Scale(temp, 100, 0, 0)
                     if (0 < ${weight_narrow})
                         ChangeWeight((100 - temp) / ${weight_narrow} + 1); CorrectDirection()
@@ -639,6 +744,28 @@ while (i < SizeOf(fontstyle_list))
         endloop
 
         Select(0u0080, 0u1fff)
+        SelectFewer(0u0174) # Ŵ
+        SelectFewer(0u0175) # ŵ
+        SelectFewer(0u0271) # ɱ
+        SelectFewer(0u1d6f) # ᵯ
+        SelectFewer(0u1d86) # ᶆ
+        SelectFewer(0u1e3e) # Ḿ
+        SelectFewer(0u1e3f) # ḿ
+        SelectFewer(0u1e40) # Ṁ
+        SelectFewer(0u1e41) # ṁ
+        SelectFewer(0u1e42) # Ṃ
+        SelectFewer(0u1e43) # ṃ
+        SelectFewer(0u1e80) # Ẁ
+        SelectFewer(0u1e81) # ẁ
+        SelectFewer(0u1e82) # Ẃ
+        SelectFewer(0u1e83) # ẃ
+        SelectFewer(0u1e84) # Ẅ
+        SelectFewer(0u1e85) # ẅ
+        SelectFewer(0u1e86) # Ẇ
+        SelectFewer(0u1e87) # ẇ
+        SelectFewer(0u1e88) # Ẉ
+        SelectFewer(0u1e89) # ẉ
+        SelectFewer(0u1e98) # ẘ
         foreach
             if (WorthOutputting())
                 glyph_width = GlyphInfo("Width")
@@ -648,7 +775,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 elseif (glyph_width <= ${width_threshold})
-                    temp = ${width_hankaku} * ${scale_x_ratio} / glyph_width
+                    temp = 100 * ${width_hankaku} / glyph_width
                     Scale(temp, 100, 0, 0)
                     if (0 < ${weight_narrow})
                         ChangeWeight((100 - temp) / ${weight_narrow} + 1); CorrectDirection()
@@ -659,7 +786,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
@@ -707,7 +834,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 else
-                    Scale(${width_hankaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_hankaku} / glyph_width, 100, 0, 0)
                     Move(${width_hankaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_hankaku})
                 endif
@@ -722,7 +849,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
@@ -730,6 +857,9 @@ while (i < SizeOf(fontstyle_list))
         endloop
 
         Select(0u2010, 0u2fff)
+        SelectFewer(0u2c6e) # Ɱ
+        SelectFewer(0u2c72) # Ⱳ
+        SelectFewer(0u2c73) # ⱳ
         foreach
             if (WorthOutputting())
                 glyph_width = GlyphInfo("Width")
@@ -739,7 +869,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 elseif (glyph_width <= ${width_threshold})
-                    temp = ${width_hankaku} * ${scale_x_ratio} / glyph_width
+                    temp = 100 * ${width_hankaku} / glyph_width
                     Scale(temp, 100, 0, 0)
                     if (0 < ${weight_narrow})
                         ChangeWeight((100 - temp) / ${weight_narrow} + 1); CorrectDirection()
@@ -750,7 +880,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
@@ -761,6 +891,7 @@ while (i < SizeOf(fontstyle_list))
         SetWidth(${width_zenkaku})
 
         Select(0u3001, 0uff60)
+        SelectFewer(0uab3a) # ꬺ
         foreach
             if (WorthOutputting())
                 glyph_width = GlyphInfo("Width")
@@ -770,7 +901,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
@@ -787,7 +918,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 else
-                    temp = ${width_hankaku} * ${scale_x_ratio} / glyph_width
+                    temp = 100 * ${width_hankaku} / glyph_width
                     Scale(temp, 100, 0, 0)
                     if (0 < ${weight_narrow})
                         ChangeWeight((100 - temp) / ${weight_narrow} + 1); CorrectDirection()
@@ -808,7 +939,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
@@ -825,14 +956,14 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
             endif
         endloop
 
-        Select(1114113, 1116974)
+        Select(1114113, 1115994)
         foreach
             if (WorthOutputting())
                 glyph_width = GlyphInfo("Width")
@@ -842,7 +973,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_hankaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_hankaku})
                 elseif (glyph_width <= ${width_threshold})
-                    temp = ${width_hankaku} * ${scale_x_ratio} / glyph_width
+                    temp = 100 * ${width_hankaku} / glyph_width
                     Scale(temp, 100, 0, 0)
                     if (0 < ${weight_narrow})
                         ChangeWeight((100 - temp) / ${weight_narrow} + 1); CorrectDirection()
@@ -853,7 +984,7 @@ while (i < SizeOf(fontstyle_list))
                     Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
                     SetWidth(${width_zenkaku})
                 else
-                    Scale(${width_zenkaku} * ${scale_x_ratio} / glyph_width, 100, 0, 0)
+                    Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
                     Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
                     SetWidth(${width_zenkaku})
                 endif
