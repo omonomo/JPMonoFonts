@@ -13,7 +13,7 @@ exec 2> >(tee -a $LOG_ERR)
 ./cueyen_generator.sh
 ./dubtone_generator.sh
 ./mogusa_generator.sh
-./poton_generator.sh
+./potori_generator.sh
 ./syukuzen_generator.sh
 ./tochinoki_generator.sh
 ./yuseimarker_generator.sh
