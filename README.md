@@ -48,10 +48,10 @@
 
 <img alt="ScreenShot" src="./images/mogusa.png" width="580">
 
-### Poton
+### Potori
 
 - 素材フォント: [Potta One](https://github.com/go108go/Potta)
-- 半角:全角比率 3:4
+- 半角:全角比率 3:5
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 I j l * ` ´ (半角)、０ Ｉ ｊ ｌ ｀ (全角)
 - 追加したグリフ: ＂ ＇ (全角)、可視化した全角スペース
