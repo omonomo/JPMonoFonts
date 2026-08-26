@@ -9,9 +9,9 @@
 
 ## フォント個別の改変内容とサンプル
 
-### Benishijimi
+### Benishijimi (紅しじみ)
 
-- 素材フォント: [Zen Kurenaido](https://github.com/googlefonts/zen-kurenaido)
+- 素材フォント: [Zen Kurenaido (ZEN 紅道)](https://github.com/googlefonts/zen-kurenaido)
 - 半角:全角比率 1:2
 - ` のグリフクラスを「マーク」から「クラスなし」に変更しています。
 - 手動で調整、改変したグリフ: 0 I * + \ ~ | ´ (半角)、０ Ｉ (全角)
@@ -19,18 +19,18 @@
 
 <img alt="ScreenShot" src="./images/benishijimi.png" width="580">
 
-### CueYen Pop
+### CueYen Pop (キューえんポップ)
 
-- 素材フォント: [Hachi Maru Pop](https://github.com/noriokanisawa/HachiMaruPop)
+- 素材フォント: [Hachi Maru Pop (はちまるポップ)](https://github.com/noriokanisawa/HachiMaruPop)
 - 半角:全角比率 3:4
 - 手動で調整、改変したグリフ: 0 " ' , . ; : | (半角)、０ ， ． ； ： 敲 寂 (全角)
 - 追加したグリフ: 㪣 (全角)、可視化した全角スペース
 
 <img alt="ScreenShot" src="./images/marucue.png" width="580">
 
-### DubTone
+### Garagga (ギャラガ)
 
-- 素材フォント: [Reggae One](https://github.com/fontworks-fonts/Reggae/)
+- 素材フォント: [Reggae One (レゲエ One)](https://github.com/fontworks-fonts/Reggae/)
 - 半角:全角比率 3:5
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 I l * , . ; : { } | (半角)、０ Ｉ ｌ ， ． ； ： ｛ ｝ (全角)
@@ -38,9 +38,9 @@
 
 <img alt="ScreenShot" src="./images/dub.png" width="580">
 
-### Mogusa
+### Mogusa (もぐさ)
 
-- 素材フォント: [Yomogi](https://github.com/satsuyako/YomogiFont)
+- 素材フォント: [Yomogi (よもぎフォント)](https://github.com/satsuyako/YomogiFont)
 - 半角:全角比率 1:2
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 a j l * = (半角)、０ ｌ (全角)
@@ -48,9 +48,9 @@
 
 <img alt="ScreenShot" src="./images/mogusa.png" width="580">
 
-### Potori
+### Potori (ポトリ)
 
-- 素材フォント: [Potta One](https://github.com/go108go/Potta)
+- 素材フォント: [Potta One (ポッタ)](https://github.com/go108go/Potta)
 - 半角:全角比率 3:5
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 I j l * ` ´ (半角)、０ Ｉ ｊ ｌ ｀ (全角)
@@ -58,9 +58,9 @@
 
 <img alt="ScreenShot" src="./images/poton.png" width="580">
 
-### SyukuZen
+### SyukuZen (肅然)
 
-- 素材フォント: [Yuji Syuku](https://github.com/Kinutafontfactory/Yuji)
+- 素材フォント: [Yuji Syuku (佑字 肅)](https://github.com/Kinutafontfactory/Yuji)
 - 半角:全角比率 1:2
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 1 l # * (半角)、０ １ ｌ (全角)
@@ -68,18 +68,18 @@
 
 <img alt="ScreenShot" src="./images/syukuzen.png" width="580">
 
-### Tochinoki Pop
+### Tochinoki Pop (とちのきポップ)
 
-- 素材フォント: [Mochiy Pop One](https://github.com/fontdasu/Mochiypop)
+- 素材フォント: [Mochiy Pop One (モッチーポップ)](https://github.com/fontdasu/Mochiypop)
 - 半角:全角比率 3:5
 - 手動で調整、改変したグリフ: 0 I * - , . ; : @ ` ´ (半角)、０ Ｉ ， ． ； ： (全角)
 - 追加したグリフ: ＂ ＃ ＄ ＇ ＊ － ＜ ＞ ＾ ＿ ｀ ｜ (全角)、可視化した全角スペース
 
 <img alt="ScreenShot" src="./images/tochinoki.png" width="580">
 
-### Yusei Marker
+### Yusei Marker (油性マーカー)
 
-- 素材フォント: [Yusei Magic](https://github.com/tanukifont/YuseiMagic)
+- 素材フォント: [Yusei Magic (油性マジック)](https://github.com/tanukifont/YuseiMagic)
 - 半角:全角比率 3:5
 - 手動で調整、改変したグリフ: 0 l * - , . ; : " ' @ ` { } | ´ (半角)、０ ｌ ， ． ； ： ＂ ＇ ｀ ｛ ｝ (全角)
 - 追加したグリフ: 可視化した全角スペース
