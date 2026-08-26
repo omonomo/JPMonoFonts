@@ -1,8 +1,8 @@
-## Tochinoki Pop
+## Tochinoki Pop (とちのきポップ)
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Mochiy Pop One](https://github.com/fontdasu/Mochiypop) を等幅フォント化しました。
+Google Fonts 等で提供されている [Mochiy Pop One (モッチーポップ)](https://github.com/fontdasu/Mochiypop) を等幅フォント化しました。
 
 ## Mochiy Pop One からの変更内容
 

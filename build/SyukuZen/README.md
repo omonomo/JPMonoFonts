@@ -1,8 +1,8 @@
-## SyukuZen
+## SyukuZen (肅然)
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Yuji Syuku](https://github.com/Kinutafontfactory/Yuji) を等幅フォント化しました。
+Google Fonts 等で提供されている [Yuji Syuku (佑字 肅)](https://github.com/Kinutafontfactory/Yuji) を等幅フォント化しました。
 
 ## Yuji Syuku からの変更内容
 

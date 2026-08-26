@@ -1,8 +1,8 @@
-## Potori
+## Potori (ポトリ)
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Potta One](https://github.com/go108go/Potta) を等幅フォント化しました。
+Google Fonts 等で提供されている [Potta One (ポッタ)](https://github.com/go108go/Potta) を等幅フォント化しました。
 
 ## Potta One からの変更内容
 
