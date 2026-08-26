@@ -40,18 +40,19 @@ name_designer="Tanukizamurai"
 name_designer_url="https://tanukifont.com"
 name_license="SIL Open Font License, Version 1.1"
 name_license_url="https://scripts.sil.org/OFL"
+change_designer="false" # デザイナー情報の変更
 
 em_ascent="880" # em値用 ※ win_ascent - (設定したい typo_linegap) / 2 が適正っぽい
 em_descent="120" # win_descent - (設定したい typo_linegap) / 2 が適正っぽい
 typo_ascent="${em_ascent}" # typo_ascent + typo_descent = em値にしないと縦書きで文字間隔が崩れる
 typo_descent="${em_descent}" # 縦書きに対応させない場合、linegap = 0で typo、win、hhea 全てを同じにするのが無難
- # typo_linegap="0" # 本来設定したい値 (win_ascent + win_descent = typo_ascent + typo_descent + typo_linegap)
-typo_linegap="0" # 数値が大きすぎると Excel (Windows版) で文字コード 80h 以上 (おそらく) の文字がずれる (Mac版については不明)
+typo_linegap="0" # win_ascent + win_descent = typo_ascent + typo_descent + typo_linegap
 win_ascent="1160"
 win_descent="288"
 hhea_ascent="${win_ascent}"
 hhea_descent="${win_descent}"
 hhea_linegap="0"
+change_metrics="false" # メトリクス情報の変更
 
 width_zero="0" # 文字幅ゼロ
 width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角の半分とする
@@ -61,7 +62,7 @@ width_zenkaku="1000" # 全角文字幅
 width_expand="-10" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
 weight_narrow="0" # 幅広のグリフを縮める際のウェイト調整値 (小さいほど拡大、0で無効)
 
-build_fonts_dir="build" # 完成品を保管するフォルダ
+build_fonts_dir="build" # 完成品を保管するディレクトリ名
 
 # Set path to command
 fontforge_command="fontforge"
@@ -78,6 +79,7 @@ ${HOME}/Library/Fonts /Library/Fonts \
 # Set flags
 leaving_tmp_flag="false" # 一時ファイル残す
 draft_flag="false" # 下書きモード
+check_half_flag="false" # 半角文字確認モード
 
 # Set filenames
 origin_regular="YuseiMagic-Regular.ttf"
@@ -94,7 +96,7 @@ custom_font_generator="custom_font_generator.pe"
 cat << _EOT_
 
 ----------------------------
-Custom font generator
+${font_familyname} ${font_familyname_suffix} generator
 Font version: ${font_version}
 ----------------------------
 
@@ -111,8 +113,7 @@ remove_temp() {
 font_generator_help()
 {
     echo "Usage: font_generator.sh [options]"
-    echo "       font_generator.sh [options] [font].ttf"
-    # echo "       font_generator.sh [options] [font1]-{Regular,Bold}.ttf [font2]-{regular,bold}.ttf ..."
+    echo "       font_generator.sh [options] [font]-{Regular}.ttf [font]-{bold}.ttf"
     echo ""
     echo "Options:"
     echo "  -h                     Display this information"
@@ -123,11 +124,12 @@ font_generator_help()
     echo "  -l                     Leave (do NOT remove) temporary files"
     echo "  -N string              Set fontfamily (\"string\")"
     echo "  -n string              Set fontfamily suffix (\"string\")"
-    echo "  -d                     Enable draft mode (Don't shrink glyphs)"
+    echo "  -d                     Enable draft mode (doesn't narrow the glyph width)"
+    echo "  -c                     Check for half-width characters"
 }
 
 # Get options
-while getopts hVxf:vlN:n:d OPT
+while getopts hVxf:vlN:n:dc OPT
 do
     case "${OPT}" in
         "h" )
@@ -140,6 +142,8 @@ do
         "x" )
             echo "Option: Cleaning temporary files"
             remove_temp
+            rm -rf ${tmpdir_name}.*
+            rm -f ${font_familyname}*.ttf
             exit 0
             ;;
         "f" )
@@ -163,8 +167,13 @@ do
             font_familyname_suffix=${OPTARG// /}
             ;;
         "d" )
-            echo "Option: Enable draft mode (skip time-consuming processes)"
+            echo "Option: Enable draft mode (doesn't narrow the glyph width)"
             draft_flag="true"
+            ;;
+        "c" )
+            echo "Check for half-width characters"
+            check_half_flag="true"
+            draft_flag="false"
             ;;
         * )
             font_generator_help
@@ -187,32 +196,38 @@ if [ $# -eq 0 ]; then
     fonts_directories=$tmp
     # Search latin fonts
     input_regular=$(find $fonts_directories -follow -name "${origin_regular}" | head -n 1)
-    # input_bold=$(find $fonts_directories -follow -name "${origin_bold}" | head -n 1)
-    # if [ -z "${input_regular}" -o -z "${input_bold}" ]; then
-    #     echo "Error: ${origin_regular} and/or ${origin_bold} not found" >&2
-    #     exit 1
-    # fi
     if [ -z "${input_regular}" ]; then
         echo "Error: ${origin_regular} not found" >&2
         exit 1
     fi
-elif [ $# -eq 2 ]; then
+    if [ -n "${origin_bold}" ]; then
+        input_bold=$(find $fonts_directories -follow -name "${origin_bold}" | head -n 1)
+        if [ -z "${input_bold}" ]; then
+            echo "Error: ${origin_bold} not found" >&2
+            exit 1
+        fi
+    fi
+elif [ $# -eq 1 ] || [ $# -eq 2 ]; then
     # Get arguments
     input_regular=$1
-    # input_bold=$2
+    input_bold=$2
     # Check existance of files
     if [ ! -r "${input_regular}" ]; then
         echo "Error: ${input_regular} not found" >&2
         exit 1
-    # elif [ ! -r "${input_bold}" ]; then
-    #     echo "Error: ${input_bold} not found" >&2
-    #     exit 1
+    elif [ -n "${origin_bold}" ]; then
+        if [ ! -r "${input_bold}" ]; then
+            echo "Error: ${input_bold} not found" >&2
+            exit 1
+        fi
     fi
     # Check filename
     [ "$(basename $input_regular)" != "${origin_regular}" ] &&
         echo "Warning: ${input_regular} does not seem to be ${origin_regular}" >&2
-    # [ "$(basename $input_bold)" != "${origin_latin_bold}" ] &&
-    #     echo "Warning: ${input_bold} does not seem to be ${origin_bold}" >&2
+    if [ -n "${origin_bold}" ]; then
+        [ "$(basename $input_bold)" != "${origin_bold}" ] &&
+            echo "Warning: ${input_bold} does not seem to be ${origin_bold}" >&2
+    fi
 else
     echo "Error: missing arguments"
     echo
@@ -276,19 +291,20 @@ cat > ${tmpdir}/${custom_font_generator} << _EOT_
 Print("- Generate custom fonts -")
 
 # Set parameters
- # input_list        = ["${input_regular}", "${input_bold}"]
- # fontfamily        = "${font_familyname}"
- # fontfamilysuffix  = "${font_familyname_suffix}"
- # fontstyle_list    = ["Regular", "Bold"]
- # fontweight_list   = [400,       700]
- # panoseweight_list = [5,         8]
-input_list        = ["${input_regular}"]
+if ("${origin_bold}" != "")
+    input_list        = ["${input_regular}", "${input_bold}"]
+    fontstyle_list    = ["Regular", "Bold"]
+    fontweight_list   = [400,       700]
+    panoseweight_list = [6,         8]
+else
+    input_list        = ["${input_regular}"]
+    fontstyle_list    = ["Regular"]
+    fontweight_list   = [400]
+    panoseweight_list = [6]
+endif
 input_zenkaku_space = "${input_zenkaku_space}"
 fontfamily        = "${font_familyname}"
 fontfamilysuffix  = "${font_familyname_suffix}"
-fontstyle_list    = ["Regular"]
-fontweight_list   = [400]
-panoseweight_list = [6]
 
 copyright         = "${copyright}" \\
                   + "${copyright_license}"
@@ -334,30 +350,34 @@ while (i < SizeOf(fontstyle_list))
     SetTTFName(0x409,  5, version)
     SetTTFName(0x409,  8, "${name_manufacturer}")
     SetTTFName(0x409, 11, "${name_vendor_url}")
-    # SetTTFName(0x409,  9, "${name_designer}")
-    # SetTTFName(0x409, 12, "${name_designer_url}")
+    if ("${change_designer}" == "true")
+        SetTTFName(0x409,  9, "${name_designer}")
+        SetTTFName(0x409, 12, "${name_designer_url}")
+    endif
     SetTTFName(0x409, 13, "${name_license}")
     SetTTFName(0x409, 14, "${name_license_url}")
-    # ScaleToEm(${em_ascent}, ${em_descent})
-    # SetOS2Value("Weight", fontweight_list[i])
-    # SetOS2Value("Width",                   5)
+    if ("${change_metrics}" == "true")
+        ScaleToEm(${em_ascent}, ${em_descent})
+        SetOS2Value("Weight", fontweight_list[i])
+        SetOS2Value("Width",                   5)
+        SetOS2Value("WinAscentIsOffset",       0)
+        SetOS2Value("WinDescentIsOffset",      0)
+        SetOS2Value("TypoAscentIsOffset",      0)
+        SetOS2Value("TypoDescentIsOffset",     0)
+        SetOS2Value("HHeadAscentIsOffset",     0)
+        SetOS2Value("HHeadDescentIsOffset",    0)
+        SetOS2Value("WinAscent",             ${win_ascent})
+        SetOS2Value("WinDescent",            ${win_descent})
+        SetOS2Value("TypoAscent",            ${typo_ascent})
+        SetOS2Value("TypoDescent",          -${typo_descent})
+        SetOS2Value("TypoLineGap",           ${typo_linegap})
+        SetOS2Value("HHeadAscent",           ${hhea_ascent})
+        SetOS2Value("HHeadDescent",         -${hhea_descent})
+        SetOS2Value("HHeadLineGap",          ${hhea_linegap})
+    endif
     SetOS2Value("FSType",                  0)
     SetOS2Value("VendorID",   "${vendor_id}")
     SetOS2Value("IBMFamily",          0x0a00) # 手書き 分類無し
-    # SetOS2Value("WinAscentIsOffset",       0)
-    # SetOS2Value("WinDescentIsOffset",      0)
-    # SetOS2Value("TypoAscentIsOffset",      0)
-    # SetOS2Value("TypoDescentIsOffset",     0)
-    # SetOS2Value("HHeadAscentIsOffset",     0)
-    # SetOS2Value("HHeadDescentIsOffset",    0)
-    # SetOS2Value("WinAscent",             ${win_ascent})
-    # SetOS2Value("WinDescent",            ${win_descent})
-    # SetOS2Value("TypoAscent",            ${typo_ascent})
-    # SetOS2Value("TypoDescent",          -${typo_descent})
-    # SetOS2Value("TypoLineGap",           ${typo_linegap})
-    # SetOS2Value("HHeadAscent",           ${hhea_ascent})
-    # SetOS2Value("HHeadDescent",         -${hhea_descent})
-    # SetOS2Value("HHeadLineGap",          ${hhea_linegap})
     SetPanose([3, 8, panoseweight_list[i], 3, 3, 4,\
                2, 2, 2, 5])
 
@@ -511,10 +531,6 @@ while (i < SizeOf(fontstyle_list))
     Select(0u00b4) # Acute accent
     Move(0, -100)
 
-# | (下げる)
-    Select(0u007c) # |
-    Move(0, -16)
-
 # { (波の先端をとがらせる)
     Select(0u003c); Copy() # <
     Select(65552);  Paste() # Temporary glyph
@@ -556,9 +572,19 @@ while (i < SizeOf(fontstyle_list))
     Paste()
     SetWidth(1000)
 
+# | (下げる)
+    Select(0u007c) # |
+    Move(0, -16)
+
+# ↑↓ (全角にする)
+    Select(0u2191) # ↑
+    SelectMore(0u2193) # ↓
+    Move(250, 0)
+    SetWidth(1000)
+
 # 文字幅調整
     if ("${draft_flag}" == "false")
-        Print("Narrows some glyphs (it may take a few minutes)")
+        Print("Narrows some glyph width (it may take a few minutes)")
         Select(0u0000, 0u007f) # 基本ラテン文字
         SelectMore(0u0174) # Ŵ
         SelectMore(0u0175) # ŵ
@@ -881,17 +907,8 @@ while (i < SizeOf(fontstyle_list))
             endif
         endloop
 
-        Select(134047)
-        if (glyph_width <= ${width_zenkaku})
-            Move(${width_zenkaku} / 2 - glyph_width / 2, 0)
-            SetWidth(${width_zenkaku})
-        else
-            Scale(100 * ${width_zenkaku} / glyph_width, 100, 0, 0)
-            Move(${width_zenkaku} / 2 - GlyphInfo("Width") / 2, 0)
-            SetWidth(${width_zenkaku})
-        endif
-
-        Select(1114113, 1114616)
+        SelectWorthOutputting()
+        SelectFewer(0u0000, 0uffff)
         foreach
             if (WorthOutputting())
                 glyph_width = GlyphInfo("Width")
@@ -944,6 +961,17 @@ while (i < SizeOf(fontstyle_list))
     glyphName = GlyphInfo("Name")
     Select(0u3000) # 全角スペース
     AddPosSub(lookupSub, glyphName)
+
+# 半角文字チェック
+    if ("${check_half_flag}" == "true")
+        Select(0u002f); Copy() # Solidus
+        SelectWorthOutputting()
+        foreach
+            if (GlyphInfo("Width") == ${width_hankaku})
+                PasteWithOffset(150, -150)
+            endif
+        endloop
+    endif
 
 # --------------------------------------------------
 
@@ -1061,7 +1089,7 @@ if [ "${leaving_tmp_flag}" = "false" ]; then
 fi
 
 # 完成したフォントを移動
-if [ "${draft_flag}" = "false" ]; then
+if [ "${draft_flag}" = "false" ] && [ "${check_half_flag}" = "false" ]; then
     echo "Move customized fonts"
     echo
     mkdir -p "${build_fonts_dir}/${font_familyname}${font_familyname_suffix}"
@@ -1069,6 +1097,6 @@ if [ "${draft_flag}" = "false" ]; then
 fi
 
 # Exit
-echo "Finished generating custom fonts."
+echo "Finished generating ${font_familyname} ${font_familyname_suffix}."
 echo
 exit 0
