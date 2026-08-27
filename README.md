@@ -1,6 +1,6 @@
 # 日本語フォント開発用途化計画
 
-プログラミングフォントってもっと自由でもいいんじゃなかろうかというコンセプトの元、Google Fonts から8つの日本語フォントを選定して等幅化、一部の文字について識別性向上のグリフ加工をしました。
+プログラミングフォントってもっと自由でもいいんじゃなかろうかというコンセプトの元、Google Fonts から9つの日本語フォントを選定して等幅化、一部の文字について識別性向上のグリフ加工をしました。
 
 ## 各フォントの共通事項
 
@@ -28,12 +28,22 @@
 
 <img alt="ScreenShot" src="./images/marucue.png" width="580">
 
-### Garagga (ギャラガ)
+### Gyaragga (ギャラガ)
 
 - 素材フォント: [Reggae One (レゲエ One)](https://github.com/fontworks-fonts/Reggae/)
 - 半角:全角比率 3:5
 - OpenTypeの "liga" フィーチャーを削除しています。
 - 手動で調整、改変したグリフ: 0 I l * , . ; : { } | (半角)、０ Ｉ ｌ ， ． ； ： ｛ ｝ (全角)
+- 追加したグリフ: 可視化した全角スペース
+
+<img alt="ScreenShot" src="./images/dub.png" width="580">
+
+### Kyuri Maru (キュウリ丸)
+
+- 素材フォント: [Kiwi Maru (キウイ丸)](https://github.com/Kiwi-KawagotoKajiru/Kiwi-Maru)
+- 半角:全角比率 1:2
+- OpenTypeの "liga" フィーチャーを削除しています。
+- 手動で調整、改変したグリフ: 0 罫線 (半角)、０ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
 <img alt="ScreenShot" src="./images/dub.png" width="580">
