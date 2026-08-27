@@ -26,7 +26,10 @@ font_familyname_suffix="Marker"
 font_version="1.0.0"
 vendor_id="PfEd"
 
-tmpdir_name="font_generator_tmpdir" # 一時保管フォルダ名
+# Set filenames
+origin_regular="YuseiMagic-Regular.ttf"
+origin_bold=""
+zenkaku_space="ZenkakuSpace.ttf"
 
 # 著作権
 copyright="Copyright (c) 2026 omonomo\n\n"
@@ -54,6 +57,11 @@ hhea_descent="${win_descent}"
 hhea_linegap="0"
 change_metrics="false" # メトリクス情報の変更
 
+# グリフ形状の情報
+ibm_family="0x0a00" # 手書き 分類なし
+panose_regular_weight="6"
+panose_bold_weight="8"
+
 width_zero="0" # 文字幅ゼロ
 width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角の半分とする
 width_hankaku="600" # 半角文字幅
@@ -62,6 +70,7 @@ width_zenkaku="1000" # 全角文字幅
 width_expand="-10" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
 weight_narrow="0" # 幅広のグリフを縮める際のウェイト調整値 (小さいほど拡大、0で無効)
 
+tmpdir_name="font_generator_tmpdir" # 一時保管ディレクトリ名
 build_fonts_dir="build" # 完成品を保管するディレクトリ名
 
 # Set path to command
@@ -81,11 +90,6 @@ leaving_tmp_flag="false" # 一時ファイル残す
 draft_flag="false" # 下書きモード
 check_half_flag="false" # 半角文字確認モード
 
-# Set filenames
-origin_regular="YuseiMagic-Regular.ttf"
-origin_bold=""
-zenkaku_space="ZenkakuSpace.ttf"
-
 custom_font_generator="custom_font_generator.pe"
 
 ################################################################################
@@ -96,7 +100,7 @@ custom_font_generator="custom_font_generator.pe"
 cat << _EOT_
 
 ----------------------------
-${font_familyname} ${font_familyname_suffix} generator
+${font_familyname}${font_familyname_suffix:+ ${font_familyname_suffix}} generator
 Font version: ${font_version}
 ----------------------------
 
@@ -295,12 +299,12 @@ if ("${origin_bold}" != "")
     input_list        = ["${input_regular}", "${input_bold}"]
     fontstyle_list    = ["Regular", "Bold"]
     fontweight_list   = [400,       700]
-    panoseweight_list = [6,         8]
+    panoseweight_list = [${panose_regular_weight}, ${panose_bold_weight}]
 else
     input_list        = ["${input_regular}"]
     fontstyle_list    = ["Regular"]
     fontweight_list   = [400]
-    panoseweight_list = [6]
+    panoseweight_list = [${panose_regular_weight}]
 endif
 input_zenkaku_space = "${input_zenkaku_space}"
 fontfamily        = "${font_familyname}"
@@ -377,7 +381,7 @@ while (i < SizeOf(fontstyle_list))
     endif
     SetOS2Value("FSType",                  0)
     SetOS2Value("VendorID",   "${vendor_id}")
-    SetOS2Value("IBMFamily",          0x0a00) # 手書き 分類無し
+    SetOS2Value("IBMFamily",   ${ibm_family})
     SetPanose([3, 8, panoseweight_list[i], 3, 3, 4,\
                2, 2, 2, 5])
 
@@ -581,6 +585,33 @@ while (i < SizeOf(fontstyle_list))
     SelectMore(0u2193) # ↓
     Move(250, 0)
     SetWidth(1000)
+
+# ss・sv 対応
+    Print("Add cv lookups")
+    lookups = GetLookups("GSUB"); numlookups = SizeOf(lookups)
+    lookupName = "'cv01' 異体字1"
+    AddLookup(lookupName, "gsub_single", 0, [["cv01",[["DFLT",["dflt"]]]]], lookups[numlookups - 1])
+    lookupSub = lookupName + "サブテーブル"
+    AddLookupSubtable(lookupName, lookupSub)
+
+    Select(0uf8fe) # 可視化した全角スペース
+    glyphName = GlyphInfo("Name")
+    Select(0u3000) # 全角スペース
+    AddPosSub(lookupSub, glyphName)
+
+    Print("Add ss lookups")
+    lookups = GetLookups("GSUB"); numlookups = SizeOf(lookups)
+    lookupName = "'ss01' スタイルセット1"
+    AddLookup(lookupName, "gsub_single", 0, [["ss01",[["DFLT",["dflt"]]]]], lookups[numlookups - 1])
+    lookupSub = lookupName + "サブテーブル"
+    AddLookupSubtable(lookupName, lookupSub)
+
+    Select(0uf8fe) # 可視化した全角スペース
+    glyphName = GlyphInfo("Name")
+    Select(0u3000) # 全角スペース
+    AddPosSub(lookupSub, glyphName)
+
+# --------------------------------------------------
 
 # 文字幅調整
     if ("${draft_flag}" == "false")
@@ -937,31 +968,6 @@ while (i < SizeOf(fontstyle_list))
         endloop
     endif
 
-# ss・sv 対応
-    Print("Add cv lookups")
-    lookups = GetLookups("GSUB"); numlookups = SizeOf(lookups)
-    lookupName = "'cv01' 異体字1"
-    AddLookup(lookupName, "gsub_single", 0, [["cv01",[["DFLT",["dflt"]]]]], lookups[numlookups - 1])
-    lookupSub = lookupName + "サブテーブル"
-    AddLookupSubtable(lookupName, lookupSub)
-
-    Select(0uf8fe) # 可視化した全角スペース
-    glyphName = GlyphInfo("Name")
-    Select(0u3000) # 全角スペース
-    AddPosSub(lookupSub, glyphName)
-
-    Print("Add ss lookups")
-    lookups = GetLookups("GSUB"); numlookups = SizeOf(lookups)
-    lookupName = "'ss01' スタイルセット1"
-    AddLookup(lookupName, "gsub_single", 0, [["ss01",[["DFLT",["dflt"]]]]], lookups[numlookups - 1])
-    lookupSub = lookupName + "サブテーブル"
-    AddLookupSubtable(lookupName, lookupSub)
-
-    Select(0uf8fe) # 可視化した全角スペース
-    glyphName = GlyphInfo("Name")
-    Select(0u3000) # 全角スペース
-    AddPosSub(lookupSub, glyphName)
-
 # 半角文字チェック
     if ("${check_half_flag}" == "true")
         Select(0u002f); Copy() # Solidus
@@ -1097,6 +1103,6 @@ if [ "${draft_flag}" = "false" ] && [ "${check_half_flag}" = "false" ]; then
 fi
 
 # Exit
-echo "Finished generating ${font_familyname} ${font_familyname_suffix}."
+echo "Finished generating ${font_familyname}${font_familyname_suffix:+ ${font_familyname_suffix}}."
 echo
 exit 0
