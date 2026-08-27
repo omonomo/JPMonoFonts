@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Yusei Magic (油性マジック)](https://github.com/tanukifont/YuseiMagic) を等幅フォント化しました。
+Google Fonts 等で提供されている [Yusei Magic (油性マジック)](https://github.com/tanukifont/YuseiMagic) を開発向けにカスタマイズしました。
 
 ## Yusei Magic からの変更内容
 

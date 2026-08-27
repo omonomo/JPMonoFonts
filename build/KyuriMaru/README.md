@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Kiwi Maru (キウイ丸)](https://github.com/Kiwi-KawagotoKajiru/Kiwi-Maru) を等幅フォント化しました。
+Google Fonts 等で提供されている [Kiwi Maru (キウイ丸)](https://github.com/Kiwi-KawagotoKajiru/Kiwi-Maru) を開発向けにカスタマイズしました。
 
 ## Kiwi Maru からの変更内容
 
@@ -21,7 +21,7 @@ Copyright 2020 The Kiwi Maru Project Authors ([https://github.com/Kiwi-KawagotoK
 
 ## Kyuri Maru のライセンス
 
-[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/Kyuri Maru/OFL.txt)
+[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/KyuriMaru/OFL.txt)
 
 ## 謝辞
 

@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Zen Kurenaido (ZEN 紅道)](https://github.com/googlefonts/zen-kurenaido) を等幅フォント化しました。
+Google Fonts 等で提供されている [Zen Kurenaido (ZEN 紅道)](https://github.com/googlefonts/zen-kurenaido) を開発向けにカスタマイズしました。
 
 ## Zen Kurenaido からの変更内容
 

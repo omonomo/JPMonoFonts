@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Yomogi (よもぎフォント)](https://github.com/satsuyako/YomogiFont) を等幅フォント化しました。
+Google Fonts 等で提供されている [Yomogi (よもぎフォント)](https://github.com/satsuyako/YomogiFont) を開発向けにカスタマイズしました。
 
 ## Yomogi からの変更内容
 

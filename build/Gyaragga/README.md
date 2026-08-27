@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Reggae One (レゲエ One)](https://github.com/fontworks-fonts/Reggae/) を等幅フォント化しました。
+Google Fonts 等で提供されている [Reggae One (レゲエ One)](https://github.com/fontworks-fonts/Reggae/) を開発向けにカスタマイズしました。
 
 ## Reggae One からの変更内容
 

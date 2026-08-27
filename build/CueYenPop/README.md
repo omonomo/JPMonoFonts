@@ -2,7 +2,7 @@
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
-Google Fonts 等で提供されている [Hachi Maru Pop (はちまるポップ)](https://github.com/noriokanisawa/HachiMaruPop) を等幅フォント化しました。
+Google Fonts 等で提供されている [Hachi Maru Pop (はちまるポップ)](https://github.com/noriokanisawa/HachiMaruPop) を開発向けにカスタマイズしました。
 
 ## HachiMaruPop からの変更内容
 
@@ -15,7 +15,7 @@ Google Fonts 等で提供されている [Hachi Maru Pop (はちまるポップ)
 ## HachiMaruPop の情報
 
 [Hachi Maru Pop (Version 1.300)]  
-Copyright 2020 The Hachi Maru Pop Project Authors ([https://github.com/noriokanisawa/HachiMaruPop](https://github.com/noriokanisawa/HachiMaruPop))
+Copyright 2020 The Hachi Maru Pop Project Authors ([https://github.com/noriokanisawa/HachiMaruPop](https://github.com/noriokanisawa/HachiMaruPop))  
 ライセンスは [SIL Open Font License v1.1](https://github.com/noriokanisawa/HachiMaruPop/blob/master/OFL.txt) です。
 
 ## CueYen Pop のライセンス
