@@ -59,8 +59,11 @@ change_metrics="false" # メトリクス情報の変更
 
 # グリフ形状の情報
 ibm_family="0x0a00" # 手書き 分類なし
+panose1=(3 9)
 panose_regular_weight="8"
 panose_bold_weight="8"
+panose2=(3 4 3)
+panose3=(2 2 2 5)
 
 width_zero="0" # 文字幅ゼロ
 width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角の半分とする
@@ -382,14 +385,10 @@ while (i < SizeOf(fontstyle_list))
     SetOS2Value("FSType",                  0)
     SetOS2Value("VendorID",   "${vendor_id}")
     SetOS2Value("IBMFamily",   ${ibm_family})
-    SetPanose([3, 9, panoseweight_list[i], 3, 4, 3,\
-               2, 2, 2, 5])
+    SetPanose([${panose1[0]}, ${panose1[1]}, panoseweight_list[i], ${panose2[0]}, ${panose2[1]}, ${panose2[2]},\
+               ${panose3[0]}, ${panose3[1]}, ${panose3[2]}, ${panose3[3]}])
 
 # --------------------------------------------------
-
-# 使用しないグリフクリア
-    Print("Remove not used glyphs")
-    Select(0, 31); Clear(); DetachAndRemoveGlyphs()
 
 # Clear kerns, position, substitutions
     Print("Clear kerns, position, substitutions")
