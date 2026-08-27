@@ -11,7 +11,7 @@ exec 2> >(tee -a $LOG_ERR)
 
 # ./benishijimi_generator.sh -c
 # ./cueyen_generator.sh -c
-# ./garagga_generator.sh -c
+# ./gyaragga_generator.sh -c
 # ./kyurimaru_generator.sh -c
 # ./mogusa_generator.sh -c
 # ./potori_generator.sh -c
@@ -21,7 +21,7 @@ exec 2> >(tee -a $LOG_ERR)
 
 ./benishijimi_generator.sh
 ./cueyen_generator.sh
-./garagga_generator.sh
+./gyaragga_generator.sh
 ./kyurimaru_generator.sh
 ./mogusa_generator.sh
 ./potori_generator.sh
@@ -31,7 +31,7 @@ exec 2> >(tee -a $LOG_ERR)
 
 ./benishijimi_generator.sh -x
 ./cueyen_generator.sh -x
-./garagga_generator.sh -x
+./gyaragga_generator.sh -x
 ./kyurimaru_generator.sh -x
 ./mogusa_generator.sh -x
 ./potori_generator.sh -x
