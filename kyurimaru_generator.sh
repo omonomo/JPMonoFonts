@@ -59,8 +59,11 @@ change_metrics="false" # メトリクス情報の変更
 
 # グリフ形状の情報
 ibm_family="0x0505" # スラブ タイプライター
+panose1=(2 8)
 panose_regular_weight="4"
 panose_bold_weight="8"
+panose2=(9 4 5)
+panose3=(2 2 2 4)
 
 width_zero="0" # 文字幅ゼロ
 width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角の半分とする
@@ -382,14 +385,10 @@ while (i < SizeOf(fontstyle_list))
     SetOS2Value("FSType",                  0)
     SetOS2Value("VendorID",   "${vendor_id}")
     SetOS2Value("IBMFamily",   ${ibm_family})
-    SetPanose([2, 8, panoseweight_list[i], 9, 4, 5,\
-               2, 2, 2, 4])
+    SetPanose([${panose1[0]}, ${panose1[1]}, panoseweight_list[i], ${panose2[0]}, ${panose2[1]}, ${panose2[2]},\
+               ${panose3[0]}, ${panose3[1]}, ${panose3[2]}, ${panose3[3]}])
 
 # --------------------------------------------------
-
-# 使用しないグリフクリア
-    Print("Remove not used glyphs")
-    Select(0, 31); Clear(); DetachAndRemoveGlyphs()
 
 # Clear kerns, position, substitutions
     Print("Clear kerns, position, substitutions")
@@ -513,7 +512,10 @@ while (i < SizeOf(fontstyle_list))
 
 #     Print("Edit alphabets")
 
-#     Print("Edit Symbols")
+    Print("Edit Symbols")
+# * (下げる)
+    Select(0u002a) # *
+    Move(0, -218)
 
 # ss・sv 対応
     Print("Add cv lookups")
