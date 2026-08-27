@@ -17,7 +17,7 @@
 - 手動で調整、改変したグリフ: 0 I * + \ ~ | ´ (半角)、０ Ｉ (全角)
 - 追加したグリフ: － ～ (全角)、可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/benishijimi.png" width="580">
+<img alt="ScreenShot" src="./images/benishijimi.png" width="610">
 
 ### CueYen Pop (キューえんポップ)
 
@@ -26,7 +26,7 @@
 - 手動で調整、改変したグリフ: 0 " ' , . ; : | (半角)、０ ， ． ； ： 敲 寂 (全角)
 - 追加したグリフ: 㪣 (全角)、可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/marucue.png" width="580">
+<img alt="ScreenShot" src="./images/cueyen.png" width="610">
 
 ### Gyaragga (ギャラガ)
 
@@ -36,17 +36,17 @@
 - 手動で調整、改変したグリフ: 0 I l * , . ; : { } | (半角)、０ Ｉ ｌ ， ． ； ： ｛ ｝ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/dub.png" width="580">
+<img alt="ScreenShot" src="./images/gyaragga.png" width="610">
 
 ### Kyuri Maru (キュウリ丸)
 
 - 素材フォント: [Kiwi Maru (キウイ丸)](https://github.com/Kiwi-KawagotoKajiru/Kiwi-Maru)
 - 半角:全角比率 1:2
 - OpenTypeの "liga" フィーチャーを削除しています。
-- 手動で調整、改変したグリフ: 0 罫線 (半角)、０ (全角)
+- 手動で調整、改変したグリフ: 0 * 罫線 (半角)、０ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/dub.png" width="580">
+<img alt="ScreenShot" src="./images/kyurimaru.png" width="610">
 
 ### Mogusa (もぐさ)
 
@@ -56,7 +56,7 @@
 - 手動で調整、改変したグリフ: 0 a j l * = (半角)、０ ｌ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/mogusa.png" width="580">
+<img alt="ScreenShot" src="./images/mogusa.png" width="610">
 
 ### Potori (ポトリ)
 
@@ -66,7 +66,7 @@
 - 手動で調整、改変したグリフ: 0 I j l * ` ´ (半角)、０ Ｉ ｊ ｌ ｀ (全角)
 - 追加したグリフ: ＂ ＇ (全角)、可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/poton.png" width="580">
+<img alt="ScreenShot" src="./images/potori.png" width="610">
 
 ### SyukuZen (肅然)
 
@@ -76,7 +76,7 @@
 - 手動で調整、改変したグリフ: 0 1 l # * (半角)、０ １ ｌ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/syukuzen.png" width="580">
+<img alt="ScreenShot" src="./images/syukuzen.png" width="610">
 
 ### Tochinoki Pop (とちのきポップ)
 
@@ -85,7 +85,7 @@
 - 手動で調整、改変したグリフ: 0 I * - , . ; : @ ` ´ (半角)、０ Ｉ ， ． ； ： (全角)
 - 追加したグリフ: ＂ ＃ ＄ ＇ ＊ － ＜ ＞ ＾ ＿ ｀ ｜ (全角)、可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/tochinoki.png" width="580">
+<img alt="ScreenShot" src="./images/tochinoki.png" width="610">
 
 ### Yusei Marker (油性マーカー)
 
@@ -94,7 +94,7 @@
 - 手動で調整、改変したグリフ: 0 l * - , . ; : " ' @ ` { } | ´ (半角)、０ ｌ ， ． ； ： ＂ ＇ ｀ ｛ ｝ (全角)
 - 追加したグリフ: 可視化した全角スペース
 
-<img alt="ScreenShot" src="./images/yuseimarker.png" width="580">
+<img alt="ScreenShot" src="./images/yuseimarker.png" width="610">
 
 ## ライセンス
 
