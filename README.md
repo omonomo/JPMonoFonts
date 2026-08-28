@@ -19,15 +19,6 @@
 
 <img alt="ScreenShot" src="./images/benishijimi.png" width="610">
 
-### CueYen Pop (キューえんポップ)
-
-- 素材フォント: [Hachi Maru Pop (はちまるポップ)](https://github.com/noriokanisawa/HachiMaruPop)
-- 半角:全角比率 3:4
-- 手動で調整、改変したグリフ: 0 " ' , . ; : | (半角)、０ ， ． ； ： 敲 寂 (全角)
-- 追加したグリフ: 㪣 (全角)、可視化した全角スペース
-
-<img alt="ScreenShot" src="./images/cueyen.png" width="610">
-
 ### Gyaragga (ギャラガ)
 
 - 素材フォント: [Reggae One (レゲエ One)](https://github.com/fontworks-fonts/Reggae/)
@@ -37,6 +28,15 @@
 - 追加したグリフ: 可視化した全角スペース
 
 <img alt="ScreenShot" src="./images/gyaragga.png" width="610">
+
+### Hamachi Pop (はまちポップ)
+
+- 素材フォント: [Hachi Maru Pop (はちまるポップ)](https://github.com/noriokanisawa/HachiMaruPop)
+- 半角:全角比率 3:4
+- 手動で調整、改変したグリフ: 0 " ' , . ; : | (半角)、０ ， ． ； ： 敲 寂 (全角)
+- 追加したグリフ: 㪣 (全角)、可視化した全角スペース
+
+<img alt="ScreenShot" src="./images/hamachi.png" width="610">
 
 ### Kyuri Maru (キュウリ丸)
 
@@ -68,7 +68,7 @@
 
 <img alt="ScreenShot" src="./images/potori.png" width="610">
 
-### SyukuZen (肅然)
+### Syukuzen (肅然)
 
 - 素材フォント: [Yuji Syuku (佑字 肅)](https://github.com/Kinutafontfactory/Yuji)
 - 半角:全角比率 1:2
@@ -101,7 +101,7 @@
 - 各フォントのライセンスは [SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/OFL.txt) です。
 - 素材フォントのライセンスにつきましては別途確認をお願いいたします。
 - 生成スクリプトのライセンスは [MIT License](https://github.com/omonomo/JPMonoFonts/blob/main/LICENSE.txt) です。
-- 生成スクリプトの一部に [ricty_generator-4.1.1.sh](https://rictyfonts.github.io) を使用しています。
+- 生成スクリプトの一部に [(Ricty Generator) ricty_generator-4.1.1.sh](https://rictyfonts.github.io) を使用しています。
 
 ## メモ
 
