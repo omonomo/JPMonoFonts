@@ -1,4 +1,4 @@
-## SyukuZen (肅然)
+## Syukuzen (肅然)
 
 Copyright (c) 2026 omonomo ([https://github.com/omonomo/JPMonoFonts](https://github.com/omonomo/JPMonoFonts))
 
@@ -19,10 +19,10 @@ Google Fonts 等で提供されている [Yuji Syuku (佑字 肅)](https://githu
 Copyright 2021 The Yuji Project Authors ([https://github.com/Kinutafontfactory/Yuji](https://github.com/Kinutafontfactory/Yuji))  
 ライセンスは [SIL Open Font License v1.1](https://github.com/Kinutafontfactory/Yuji/blob/master/OFL.txt) です。
 
-## SyukuZen のライセンス
+## Syukuzen のライセンス
 
-[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/SyukuZen/OFL.txt)
+[SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/build/Syukuzen/OFL.txt)
 
 ## 謝辞
 
-SyukuZen の製作にあたり、素晴らしいフォントやツール類を提供してくださっております製作者の方々に感謝いたします。
+Syukuzen の製作にあたり、素晴らしいフォントやツール類を提供してくださっております製作者の方々に感謝いたします。
