@@ -71,7 +71,7 @@ width_hankaku="600" # 半角文字幅
 width_threshold="950" # 半角全角判断文字幅
 width_zenkaku="1000" # 全角文字幅
 width_expand="5" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
-weight_narrow="4" # 幅広のグリフを縮める際のウェイト調整値 (整数、小さいほど拡大、0で無効)
+weight_narrow="4" # 幅広のグリフを縮める際のウェイト調整値 (正の数、小さいほど拡大、0で無効)
 
 tmpdir_name="font_generator_tmpdir" # 一時保管ディレクトリ名
 build_fonts_dir="build" # 完成品を保管するディレクトリ名
