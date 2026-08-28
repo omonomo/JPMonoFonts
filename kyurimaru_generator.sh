@@ -45,10 +45,10 @@ name_license="SIL Open Font License, Version 1.1"
 name_license_url="https://scripts.sil.org/OFL"
 change_designer="false" # デザイナー情報の変更
 
-em_ascent="880" # em値用 ※ win_ascent - (設定したい typo_linegap) / 2 が適正っぽい
-em_descent="120" # win_descent - (設定したい typo_linegap) / 2 が適正っぽい
+em_ascent="880" # em値用 ※ win_ascent - typo_linegap / 2 が適正っぽい
+em_descent="120" # win_descent - typo_linegap / 2 が適正っぽい
 typo_ascent="${em_ascent}" # typo_ascent + typo_descent = em値にしないと縦書きで文字間隔が崩れる
-typo_descent="${em_descent}" # 縦書きに対応させない場合、linegap = 0で typo、win、hhea 全てを同じにするのが無難
+typo_descent="${em_descent}" # 縦書きに対応させない場合、linegap = 0 で typo、win、hhea 全てを同じにするのが無難
 typo_linegap="0" # win_ascent + win_descent = typo_ascent + typo_descent + typo_linegap
 win_ascent="1160"
 win_descent="288"
@@ -70,8 +70,8 @@ width_xAvg_char="500" # フォントの半角文字幅の指定は常に全角�
 width_hankaku="500" # 半角文字幅
 width_threshold="880" # 半角全角判断文字幅
 width_zenkaku="1000" # 全角文字幅
-width_expand="10" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
-weight_narrow="4" # 幅広のグリフを縮める際のウェイト調整値 (小さいほど拡大、0で無効)
+width_expand="15" # 幅広のグリフを縮める際の両端調整幅 (マイナスで文字拡大、プラスで縮小)
+weight_narrow="4" # 幅広のグリフを縮める際のウェイト調整値 (整数、小さいほど拡大、0で無効)
 
 tmpdir_name="font_generator_tmpdir" # 一時保管ディレクトリ名
 build_fonts_dir="build" # 完成品を保管するディレクトリ名
@@ -402,7 +402,6 @@ while (i < SizeOf(fontstyle_list))
         endif
         j++
     endloop
-
 
     # lookups = GetLookups("GPOS"); numlookups = SizeOf(lookups); j = 0
     # while (j < numlookups)
