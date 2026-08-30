@@ -1,6 +1,6 @@
 # 日本語フォント開発用途化計画
 
-プログラミング・コーディング用フォントってもっと自由でもいいんじゃなかろうかというコンセプトの元、Google Fonts から9つの日本語フォントを選定して等幅化、一部の文字について識別性向上のグリフ加工をしました。
+プログラミング・コーディング用フォントってもっと自由でもいいんじゃなかろうかという思いつきにより、Google Fonts から9つの日本語フォントを選定して等幅化、一部の文字について識別性向上のグリフ加工をしました。
 
 ## 各フォントの共通事項
 
@@ -99,12 +99,32 @@
 ## ライセンス
 
 - 各フォントのライセンスは [SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/OFL.txt) です。
-- 素材フォントのライセンスにつきましては別途確認をお願いいたします。
 - 生成スクリプトのライセンスは [MIT License](https://github.com/omonomo/JPMonoFonts/blob/main/LICENSE.txt) です。
-- 生成スクリプトの一部に [(Ricty Generator) ricty_generator-4.1.1.sh](https://rictyfonts.github.io) を使用しています。
+- 生成スクリプトの一部に [Ricty Generator](https://rictyfonts.github.io) (ricty_generator-4.1.1.sh) のコードを使用しています。
+
+&emsp;※ 素材フォントのライセンスにつきましては別途確認をお願いいたします。
 
 ## メモ
 
 - 自作合成フォント[Cyroit](https://omonomo.github.io/Cyroit/)シリーズはいろいろとこだわりすぎたためフォントも生成スクリプトを肥大化してしまいました。今回は肩の力を抜いて必要最低限と思われる改変のみを行っています。
 - 半角幅が全角の1/2でないフォントについても属性は等幅フォントとしています。使用される方にとってはそのほうが分かりやすいと判断したためです。
 - 自動生成で文字幅の統一化をしているため、線の太さのばらつきなど少し気になるところがあります。あまりモニタに近づいて見たりフォントを拡大しないようお願いいたします。
+
+## リンク
+
+自作した合成フォントです。
+
+### 全角英数や半角カナが判別しやすい、文字間隔調整機能付き等幅フォント
+
+- [Cyroit](https://omonomo.github.io/Cyroit/): Inconsolata + Circle M+ 1m + BIZ UDゴシック + NINJAL 変体仮名フォント + Nerd Fonts
+- [Idroit](https://omonomo.github.io/Idroit/): Monoid + Cyroit
+- [Jeroit](https://omonomo.github.io/Jeroit/): JetBrains Mono + Cyroit
+- [Meroit](https://omonomo.github.io/Meroit/): Meslo LG + Hack + Cyroit
+- [Roroit](https://omonomo.github.io/Roroit/): Roboto Mono + Noto Sans Mono + Cyroit
+- [Soroit](https://omonomo.github.io/Soroit/): Source Code Pro + Hasklig + Cyroit
+- [Ubroit](https://omonomo.github.io/Ubroit/): Ubuntu Mono + Cyroit
+- [Viroit](https://omonomo.github.io/Viroit/): Victor Mono + Cyroit
+
+### 全角英数や半角カナが判別しやすいプロポーショナルフォント
+
+- [Awroit](https://omonomo.github.io/Awroit/): iA Writer Quattro + IBM Plex Mono + Cyroit
