@@ -23,7 +23,7 @@ exec 2> >(tee -a $LOG_ERR)
 font_familyname="Potori"
 font_familyname_suffix=""
 
-font_version="1.0.0"
+font_version="1.0.1"
 vendor_id="PfEd"
 
 # Set filenames
@@ -417,6 +417,7 @@ while (i < SizeOf(fontstyle_list))
     ClearHints()
 
     Print("Correct stroke direction")
+    RemoveOverlap()
     CorrectDirection()
 
 # --------------------------------------------------
