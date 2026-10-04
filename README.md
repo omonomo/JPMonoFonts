@@ -96,6 +96,12 @@
 
 <img alt="ScreenShot" src="./images/yuseimarker.png" width="610">
 
+## ダウンロード
+
+[Releases](https://github.com/omonomo/JPMonoFonts/releases) からお願いいたします。
+
+[Homebrew](https://brew.sh/ja/) でもインストールできます。[こちら](https://github.com/omonomo/homebrew-tap)をご参照下さい。
+
 ## ライセンス
 
 - 各フォントのライセンスは [SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/OFL.txt) です。
