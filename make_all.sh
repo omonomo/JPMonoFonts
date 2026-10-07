@@ -3,8 +3,8 @@ set -e
 
 # ログをファイル出力させる場合は有効にする (<< "#LOG" をコメントアウトさせる)
 << "#LOG"
-LOG_OUT=/tmp/run_ff_ttx.log
-LOG_ERR=/tmp/run_ff_ttx_err.log
+LOG_OUT=/tmp/jp_mono_fonts.log
+LOG_ERR=/tmp/jp_mono_fonts_err.log
 exec 1> >(tee -a $LOG_OUT)
 exec 2> >(tee -a $LOG_ERR)
 #LOG
