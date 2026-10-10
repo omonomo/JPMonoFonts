@@ -102,6 +102,9 @@
 
 [Homebrew](https://brew.sh/ja/) でもインストールできます。[こちら](https://github.com/omonomo/homebrew-tap)をご参照下さい。
 
+フォントやスクリプトの使用は自己責任にてお願いいたします。  
+各ファイルを使用することで生じた不具合・損害等について omonomo は責任を負いません。  
+
 ## ライセンス
 
 - 各フォントのライセンスは [SIL Open Font License Version 1.1](https://github.com/omonomo/JPMonoFonts/blob/main/OFL.txt) です。
@@ -134,3 +137,7 @@
 ### 全角英数や半角カナが判別しやすいプロポーショナルフォント
 
 - [Awroit](https://omonomo.github.io/Awroit/): iA Writer Quattro + IBM Plex Mono + Cyroit
+
+### CJK等幅フォント用にサイズ調整したカラー絵文字
+
+- [Twemoji-TT](https://github.com/omonomo/TwemojiTT): Twemoji
