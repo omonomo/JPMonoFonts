@@ -140,4 +140,5 @@
 
 ### CJK等幅フォント用にサイズ調整したカラー絵文字
 
-- [Twemoji-TT](https://github.com/omonomo/TwemojiTT): Twemoji
+- [TwemojiTT](https://github.com/omonomo/TwemojiTT): Twemoji
+- [NCemojiTT](https://github.com/omonomo/NCemojiTT): Noto Color Emoji
