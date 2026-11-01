@@ -9,7 +9,7 @@
 # docker compose build
 # を実行
 
-FROM ubuntu:latest
+FROM ubuntu:26.04
 
 RUN apt update && \
   DEBIAN_FRONTEND=noninteractive apt install -y \
@@ -17,7 +17,7 @@ RUN apt update && \
   fontforge \
   fonttools \
   locales \
-  nano \
+  micro \
   && \
   locale-gen ja_JP.UTF-8
 
